@@ -94,3 +94,6 @@ out/
 .idea
 
 .storybook
+
+*storybook.log
+storybook-static
