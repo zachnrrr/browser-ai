@@ -1,18 +1,20 @@
 import React, {useState} from "react";
 
 export interface HoverableIconProps {
+    className?: string;
     src: string;
     srcOnHover: string;
+    isDisabled?: boolean;
     onClick?: () => void;
 }
 
 const HoverableIcon = (props: HoverableIconProps) => {
     const [isHovered, setIsHovered] = useState(false);
-
     return (
         <button
             onClick={props.onClick}
-            className={`hover:bg-[#5ABCE9] rounded-xl px-1`}
+            disabled={props.isDisabled}
+            className={`${props.className} hover:bg-[#5ABCE9] rounded-xl px-1`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >

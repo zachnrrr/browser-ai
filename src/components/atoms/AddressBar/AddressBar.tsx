@@ -1,30 +1,28 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 export interface AddressBarProps {
     className?: string;
-    onSearch: () => void;
+    onSearch: (url: string) => void;
+    webAddress?: string;
 }
 
-const AddressBar = ({className, onSearch} : AddressBarProps) => {
+const AddressBar = (props : AddressBarProps) => {
     const [focused, setFocused] = useState(false);
-    const [value, setValue] = useState("");
+    const [value, setValue] = useState(props.webAddress);
+    const [isEditing, setIsEditing] = useState(false);
+
+    useEffect(() => {
+        if (!isEditing) {
+            setValue(props.webAddress);
+        }
+    }, [props.webAddress, isEditing]);
 
     return (
         <div
-            className={`
-                ${className}
-                flex items-center 
-                w-full 
-                rounded-2xl 
-                px-4 py-2 
-                bg-[#21293A] 
-                border 
-                ${focused
+            className={`${props.className} flex items-center w-full rounded-2xl px-4 py-2 bg-[#21293A] border 
+                transition-all duration-200 ${focused
                 ? "border-[#4b71ff] shadow-[0_0_12px_2px_#4b71ff55]"
-                : "border-[#2a3550]"
-            } 
-                transition-all duration-200
-            `}
+                : "border-[#2a3550]"}`}
         >
             {/* Icon */}
             <img
@@ -35,15 +33,22 @@ const AddressBar = ({className, onSearch} : AddressBarProps) => {
 
             <input
                 type="text"
-                placeholder="https://ai-browser.dev"
+                placeholder={props.webAddress}
                 value={value}
-                onChange={(e) => setValue(e.target.value)}
-                onFocus={() => setFocused(true)}
-                onBlur={() => setFocused(false)}
+                onFocus={() => {
+                    setIsEditing(true);
+                    setFocused(true);
+                }}
+                onBlur={() => {
+                    setIsEditing(false);
+                    setFocused(false);
+                }}
+                onChange={(e) => {
+                    setIsEditing(true);
+                    setValue(e.target.value);
+                }}
                 onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                        onSearch();   // ← triggers on Enter
-                    }
+                    if (e.key === "Enter") props.onSearch(value);
                 }}
                 className="bg-transparent outline-none text-gray-200 text-sm w-full ml-3"
             />

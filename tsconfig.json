@@ -13,6 +13,9 @@
     "moduleResolution": "node",
     "resolveJsonModule": true
   },
-  "include": ["src"],
+  "include": [
+    "src",
+    "node_modules/@electron-forge/plugin-vite/forge-vite-env.d.ts"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
