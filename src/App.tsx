@@ -1,5 +1,5 @@
 import React from 'react';
-import BrowserTab from "./components/atoms/BrowserTab";
+import BrowserTab from "./components/atoms/BrowserTab/BrowserTab";
 
 function App() {
   return (

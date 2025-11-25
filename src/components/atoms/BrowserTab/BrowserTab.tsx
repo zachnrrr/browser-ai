@@ -8,7 +8,7 @@ export interface BrowserTabProps {
 
 const BrowserTab = ({title, isActive, onTabClosed}: BrowserTabProps) => {
     const borderActiveStyle = isActive
-        ? "bg-[#111827] border-t-2 border-l-2 border-r-2 border-[#D9D9D9]"
+        ? "bg-[#111827] border-t border-l border-r border-[#D9D9D9]"
         : "bg-[#0f1626] opacity-60";
 
     return (
