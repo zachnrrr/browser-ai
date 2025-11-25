@@ -13,8 +13,9 @@ export const BrowserTabPreview = {
     args: {
         title: 'Google',
         isActive: true,
+        onTabClosed: {}
     },
-    render: ({ title, isActive }: BrowserTabProps) => {
-        return <BrowserTab title={title} isActive={isActive} />;
+    render: ({ title, isActive, onTabClosed }: BrowserTabProps) => {
+        return <BrowserTab title={title} isActive={isActive} onTabClosed={onTabClosed} />;
     },
 };
