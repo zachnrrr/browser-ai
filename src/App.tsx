@@ -8,7 +8,12 @@ function App() {
     }
     return (
         <div className={`flex flex-col h-full w-full`}>
-            <BrowserTab title={"Google"} isActive={true} onTabClosed={onTabClosed}/>
+            <BrowserTab
+                title={"Google"}
+                isActive={true}
+                onTabClosed={onTabClosed}
+                className={`mx-4 mt-2 max-w-48`}
+            />
             <BrowserContent className={`flex-1`}/>
         </div>
     );

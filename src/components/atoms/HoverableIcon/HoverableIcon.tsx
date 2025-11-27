@@ -22,7 +22,7 @@ const HoverableIcon = (props: HoverableIconProps) => {
                 <img
                     src={isHovered && props.srcOnHover ? props.srcOnHover : props.src}
                     alt="icon"
-                    className={`w-5 h-5 object-contain`}
+                    className={`w-4 h-4 object-contain flex-shrink-0`}
                 />
             </div>
         </button>

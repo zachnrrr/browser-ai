@@ -16,7 +16,7 @@ export interface SearchBarProps {
 
 const SearchBar = (props: SearchBarProps) => {
     return (
-        <div className={`${props.className} flex bg-[#121826] p-2 gap-1`}>
+        <div className={`${props.className} flex bg-[#121826] p-3 gap-1`}>
             <HoverableIcon
                 src={"/icons/ic_chevron_left_white.svg"}
                 srcOnHover={"/icons/ic_chevron_left_navy.svg"}
