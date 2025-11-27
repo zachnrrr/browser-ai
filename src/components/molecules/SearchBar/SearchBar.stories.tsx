@@ -1,8 +1,8 @@
 import React from "react";
-import SearchBar from "./SeachBar";
+import SearchBar from "./SearchBar";
 
 const meta = {
-    title: 'components/organisms/SearchBar',
+    title: 'components/molecules/SearchBar',
     component: SearchBar,
     tags: ['autodocs']
 }

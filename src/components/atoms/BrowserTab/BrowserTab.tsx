@@ -1,19 +1,20 @@
 import React from "react";
 
 export interface BrowserTabProps {
+    className?: string;
     title: string;
     isActive: boolean;
     onTabClosed: () => void;
 }
 
-const BrowserTab = ({title, isActive, onTabClosed}: BrowserTabProps) => {
-    const borderActiveStyle = isActive
+const BrowserTab = (props: BrowserTabProps) => {
+    const borderActiveStyle = props.isActive
         ? "bg-[#111827] border-t border-l border-r border-[#D9D9D9]"
         : "bg-[#0f1626] opacity-60";
 
     return (
         <div
-            className={`flex items-center gap-2 px-4 py-2 rounded-t-xl font-mono ${borderActiveStyle}`}
+            className={`${props.className} flex items-center gap-2 px-4 py-2 rounded-t-xl font-mono ${borderActiveStyle}`}
         >
             {/* Globe Icon */}
             <img
@@ -23,10 +24,10 @@ const BrowserTab = ({title, isActive, onTabClosed}: BrowserTabProps) => {
             />
 
             {/* Title */}
-            <span className="text-white text-sm whitespace-nowrap ml-2">{title}</span>
+            <span className="text-white text-sm whitespace-nowrap ml-2">{props.title}</span>
 
             {/* Icon close */}
-            <button onClick={onTabClosed} className={`ml-auto`}>
+            <button onClick={props.onTabClosed} className={`ml-auto`}>
                 <div className="flex items-center m-2 hover:bg-red-500 rounded">
                     <img
                         src="/icons/ic_cross_white.svg"
