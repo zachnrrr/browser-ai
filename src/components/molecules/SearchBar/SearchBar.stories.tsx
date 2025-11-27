@@ -1,5 +1,5 @@
 import React from "react";
-import SearchBar from "./SeachBar";
+import SearchBar from "./SearchBar";
 
 const meta = {
     title: 'components/molecules/SearchBar',

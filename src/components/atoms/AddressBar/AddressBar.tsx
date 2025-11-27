@@ -8,7 +8,7 @@ export interface AddressBarProps {
 
 const AddressBar = (props : AddressBarProps) => {
     const [focused, setFocused] = useState(false);
-    const [value, setValue] = useState(props.webAddress);
+    const [value, setValue] = useState(props.webAddress ?? "");
     const [isEditing, setIsEditing] = useState(false);
 
     useEffect(() => {
@@ -48,7 +48,7 @@ const AddressBar = (props : AddressBarProps) => {
                     setValue(e.target.value);
                 }}
                 onKeyDown={(e) => {
-                    if (e.key === "Enter") props.onSearch(value);
+                    if (e.key === "Enter") props.onSearch(value ?? '');
                 }}
                 className="bg-transparent outline-none text-gray-200 text-sm w-full ml-3"
             />

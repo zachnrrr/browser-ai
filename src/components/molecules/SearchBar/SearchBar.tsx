@@ -35,7 +35,8 @@ const SearchBar = (props: SearchBarProps) => {
                 src={"/icons/ic_home_white.svg"}
                 srcOnHover={"/icons/ic_home_navy.svg"}
                 onClick={props.onHomeClicked}/>
-            <AddressBar className={`ms-2`} onSearch={props.onSearch} webAddress={props.webAddress}/>
+            {/* eslint-disable-next-line @typescript-eslint/no-empty-function */}
+            <AddressBar className={`ms-2`} onSearch={props.onSearch ?? (() => {})} webAddress={props.webAddress}/>
         </div>
     );
 }
