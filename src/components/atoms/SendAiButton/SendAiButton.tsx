@@ -1,6 +1,6 @@
 import React from "react";
 
-export interface SendAiButtonProps {
+export interface SendAiButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     onClick?: () => void;
 }
 
@@ -36,7 +36,6 @@ const SendAiButton= ({onClick}: SendAiButtonProps) => {
                     d='M3.75 12l16.5-9-4.5 9 4.5 9-16.5-9z'
                 />
             </svg>
-
             Send
         </button>
     );
