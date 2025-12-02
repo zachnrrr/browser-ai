@@ -19,7 +19,7 @@ const AddressBar = (props : AddressBarProps) => {
 
     return (
         <div
-            className={`${props.className} flex items-center w-full rounded-2xl px-4 py-2 bg-[#21293A] border 
+            className={`${props.className} flex items-center rounded-2xl px-4 py-2 bg-[#21293A] border 
                 transition-all duration-200 ${focused
                 ? "border-[#4b71ff] shadow-[0_0_12px_2px_#4b71ff55]"
                 : "border-[#2a3550]"}`}

@@ -1,6 +1,6 @@
 import React from 'react';
 import BrowserTab from "./components/atoms/BrowserTab/BrowserTab";
-import BrowserContent from "./components/organisms/BrowserHeader/BrowserContent";
+import BrowserContent from "./components/pages/BrowserHeader/BrowserContent";
 
 function App() {
     const onTabClosed = () => {

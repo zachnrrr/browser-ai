@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
 import SearchBar from "../../molecules/SearchBar/SearchBar";
 import {URL_GOOGLE} from "../../../utils/constants";
+import AiPanel from "../../organisms/AiPanel/AiPanel";
 
 export interface BrowserContentProps {
     className?: string;
@@ -14,6 +15,7 @@ const BrowserContent = (props: BrowserContentProps) => {
     const goBack = () => webviewRef.current?.goBack();
     const goForward = () => webviewRef.current?.goForward();
     const reload = () => webviewRef.current?.reload();
+    const [isAiPanelOpen, setIsAiPanelOpen] = useState(true);
 
     const goHome = () => {
         webviewRef.current?.loadURL(URL_GOOGLE).catch(err => {
@@ -62,15 +64,30 @@ const BrowserContent = (props: BrowserContentProps) => {
                 isBackDisabled={!isCanGoBack}
                 isForwardDisabled={!isCanGoForward}
                 webAddress={currentUrl}
+                onUseAiClicked={() => {
+                    setIsAiPanelOpen(true)
+                }}
             />
 
-            {/* Browser content */}
-            <webview
-                ref={webviewRef}
-                className="flex-1 w-full"
-                src={URL_GOOGLE}
-                partition="persist:browser"
-            />
+            <div className={`flex flex-1`}>
+                {/* Browser content */}
+                <webview
+                    ref={webviewRef}
+                    className="flex-1"
+                    src={URL_GOOGLE}
+                    partition="persist:browser"
+                />
+
+                {/* Ai Panel*/}
+                <AiPanel
+                    isOpen={isAiPanelOpen}
+                    chats={[]}
+                    onSendPrompt={(message: string) => {/**/}}
+                    onPanelClosed={() => {
+                        setIsAiPanelOpen(false);
+                    }}
+                />
+            </div>
         </div>
     );
 };

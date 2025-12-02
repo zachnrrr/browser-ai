@@ -2,7 +2,7 @@ import React from "react";
 import BrowserContent from "./BrowserContent";
 
 const meta = {
-    title: 'components/organisms/BrowserContent',
+    title: 'components/pages/BrowserContent',
     component: BrowserContent,
     tags: ['autodocs']
 }
